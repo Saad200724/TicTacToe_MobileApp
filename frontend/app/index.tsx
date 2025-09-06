@@ -376,7 +376,7 @@ export default function TicTacToeGame() {
                 {board.map((cell, index) => {
                   const animatedStyle = useAnimatedStyle(() => ({
                     transform: [{ scale: scaleValues[index].value }],
-                  }));
+                  }), [scaleValues[index].value]);
 
                   return (
                     <Animated.View key={index} style={animatedStyle}>
