@@ -256,11 +256,11 @@ export default function TicTacToeGame() {
   const boardAnimatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: boardScale.value }],
     opacity: boardScale.value,
-  }));
+  }), [boardScale.value]);
 
   const menuAnimatedStyle = useAnimatedStyle(() => ({
     opacity: menuOpacity.value,
-  }));
+  }), [menuOpacity.value]);
 
   return (
     <SafeAreaView style={styles.container}>
