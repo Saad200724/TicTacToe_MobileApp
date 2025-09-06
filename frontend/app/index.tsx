@@ -33,7 +33,10 @@ interface GameStats {
   draws: number;
 }
 
+const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
+
 export default function TicTacToeGame() {
+  const router = useRouter();
   const [board, setBoard] = useState<Player[]>(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState<Player>('X');
   const [gameMode, setGameMode] = useState<GameMode>('menu');
@@ -41,6 +44,8 @@ export default function TicTacToeGame() {
   const [winner, setWinner] = useState<Player | 'draw' | null>(null);
   const [stats, setStats] = useState<GameStats>({ playerWins: 0, aiWins: 0, draws: 0 });
   const [gameCount, setGameCount] = useState(0);
+  const [gameStartTime, setGameStartTime] = useState<Date | null>(null);
+  const [moves, setMoves] = useState<number[]>([]);
 
   // Animation values
   const scaleValues = Array.from({ length: 9 }, () => useSharedValue(1));
