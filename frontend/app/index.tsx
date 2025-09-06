@@ -381,10 +381,21 @@ export default function TicTacToeGame() {
 
               <View style={styles.board}>
                 {board.map((cell, index) => (
-                    <Animated.View key={index} style={cellAnimatedStyles[index]}>
+                    <Animated.View 
+                      key={index} 
+                      style={[
+                        {
+                          width: '30%',
+                          height: '30%',
+                          margin: '1.66%',
+                        },
+                        cellAnimatedStyles[index]
+                      ]}
+                    >
                       <TouchableOpacity
                         style={[
                           styles.cell,
+                          { width: '100%', height: '100%', margin: 0 },
                           cell === 'X' ? styles.cellX : cell === 'O' ? styles.cellO : styles.cellEmpty
                         ]}
                         onPress={() => handleCellPress(index)}
