@@ -179,13 +179,14 @@ export default function TicTacToeGame() {
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
+    setMoves(prev => [...prev, index]);
 
     const gameWinner = checkWinner(newBoard);
     if (gameWinner) {
       setWinner(gameWinner);
       updateStats(gameWinner);
       setTimeout(() => {
-        Haptics.impactAsync(gameWinner === 'draw' ? Haptics.ImpactFeedbackStyle.Light : Haptics.ImpactFeedbackStyle.Heavy);
+        Haptics.impactAsync(gameWinner === 'draw' ? Haptics.ImpactFeedboardbackStyle.Light : Haptics.ImpactFeedbackStyle.Heavy);
       }, 100);
       return;
     }
@@ -197,6 +198,7 @@ export default function TicTacToeGame() {
         const aiBoard = [...newBoard];
         aiBoard[aiMove] = 'O';
         setBoard(aiBoard);
+        setMoves(prev => [...prev, aiMove]);
         
         scaleValues[aiMove].value = withSpring(0.8, { damping: 8, stiffness: 200 }, () => {
           scaleValues[aiMove].value = withSpring(1, { damping: 8, stiffness: 200 });
