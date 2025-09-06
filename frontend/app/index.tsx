@@ -266,6 +266,8 @@ export default function TicTacToeGame() {
     setBoard(Array(9).fill(null));
     setCurrentPlayer('X');
     setWinner(null);
+    setMoves([]);
+    setGameStartTime(new Date());
     scaleValues.forEach(val => val.value = 1);
   };
 
