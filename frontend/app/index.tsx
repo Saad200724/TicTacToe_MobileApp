@@ -186,7 +186,7 @@ export default function TicTacToeGame() {
       setWinner(gameWinner);
       updateStats(gameWinner);
       setTimeout(() => {
-        Haptics.impactAsync(gameWinner === 'draw' ? Haptics.ImpactFeedboardbackStyle.Light : Haptics.ImpactFeedbackStyle.Heavy);
+        Haptics.impactAsync(gameWinner === 'draw' ? Haptics.ImpactFeedbackStyle.Light : Haptics.ImpactFeedbackStyle.Heavy);
       }, 100);
       return;
     }
