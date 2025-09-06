@@ -398,8 +398,7 @@ export default function TicTacToeGame() {
                         </Text>
                       </TouchableOpacity>
                     </Animated.View>
-                  );
-                })}
+                  ))}
               </View>
 
               <View style={styles.gameControls}>
