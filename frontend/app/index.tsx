@@ -218,6 +218,37 @@ export default function TicTacToeGame() {
     }
   };
 
+  const saveGameResult = async (winner: Player | 'draw') => {
+    if (!gameStartTime) return;
+    
+    const gameDuration = Math.floor((Date.now() - gameStartTime.getTime()) / 1000);
+    
+    try {
+      const gameData = {
+        player_name: 'Player',
+        game_mode: gameMode,
+        difficulty: gameMode === 'ai' ? difficulty : null,
+        winner: winner,
+        moves: moves,
+        duration: gameDuration
+      };
+
+      const response = await fetch(`${BACKEND_URL}/api/games`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(gameData),
+      });
+
+      if (response.ok) {
+        console.log('Game saved successfully!');
+      }
+    } catch (error) {
+      console.error('Error saving game:', error);
+    }
+  };
+
   const updateStats = (winner: Player | 'draw') => {
     setStats(prev => ({
       ...prev,
@@ -226,6 +257,7 @@ export default function TicTacToeGame() {
       draws: winner === 'draw' ? prev.draws + 1 : prev.draws,
     }));
     setGameCount(prev => prev + 1);
+    saveGameResult(winner);
   };
 
   const resetGame = () => {
