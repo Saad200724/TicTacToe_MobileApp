@@ -52,6 +52,13 @@ export default function TicTacToeGame() {
   const boardScale = useSharedValue(0);
   const menuOpacity = useSharedValue(1);
 
+  // Pre-create animated styles for all cells to avoid hooks rule violation
+  const cellAnimatedStyles = scaleValues.map((scaleValue) => 
+    useAnimatedStyle(() => ({
+      transform: [{ scale: scaleValue.value }],
+    }), [scaleValue.value])
+  );
+
   useEffect(() => {
     if (gameMode !== 'menu') {
       boardScale.value = withSpring(1, { damping: 15, stiffness: 150 });
