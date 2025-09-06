@@ -592,9 +592,6 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   cell: {
-    width: '30%',
-    height: '30%',
-    margin: '1.66%',
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
