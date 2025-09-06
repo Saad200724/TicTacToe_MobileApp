@@ -333,6 +333,11 @@ export default function TicTacToeGame() {
                   gradient={['#f093fb', '#f5576c']}
                   onPress={() => startGame('pvp')}
                 />
+                <MenuButton
+                  title="📊 STATISTICS"
+                  gradient={['#4facfe', '#00f2fe']}
+                  onPress={() => router.push('/stats')}
+                />
               </View>
 
               {gameCount > 0 && (
