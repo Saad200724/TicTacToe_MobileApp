@@ -279,6 +279,7 @@ export default function TicTacToeGame() {
   const startGame = (mode: GameMode, diff?: Difficulty) => {
     resetGame();
     setGameMode(mode);
+    setGameStartTime(new Date());
     if (diff) setDifficulty(diff);
   };
 
