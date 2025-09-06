@@ -603,9 +603,9 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   cellEmpty: {
-    backgroundColor: 'rgba(255,255,255,0.1)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.2)',
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.4)',
   },
   cellX: {
     backgroundColor: 'rgba(102, 126, 234, 0.3)',
