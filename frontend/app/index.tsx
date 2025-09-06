@@ -586,7 +586,13 @@ const styles = StyleSheet.create({
     padding: 8,
     marginBottom: 30,
   },
+  cellContainer: {
+    width: 90,
+    height: 90,
+    margin: 4,
+  },
   cell: {
+    flex: 1,
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
